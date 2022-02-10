@@ -1,5 +1,5 @@
 {
-    "name": "livijn/multiple-tokens-auth",
+    "name": "mrodriguezprox/multiple-tokens-auth",
     "description": "Adds the ability to use multiple tokens for the auth:api middleware.",
     "homepage": "https://github.com/livijn/multiple-tokens-auth",
     "license": "MIT",
