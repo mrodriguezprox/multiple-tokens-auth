@@ -11,7 +11,7 @@ class HasApiTokensTest extends TestCase
     public function it_can_have_tokens()
     {
         $user = factory(User::class)->create();
-        factory(ApiToken::class, 3)->create(['user_id' => $user->id]);
+        factory(ApiToken::class, 3)->create(['ID_USUARIO' => $user->ID_USUARIO]);
 
         $this->assertEquals(3, $user->apiTokens()->count());
     }
@@ -28,7 +28,7 @@ class HasApiTokensTest extends TestCase
 
         $this->assertEquals(1, ApiToken::count());
         $this->assertEquals(1, $user->apiTokens()->count());
-        $this->assertEquals($user->id, ApiToken::first()->user_id);
+        $this->assertEquals($user->ID_USUARIO, ApiToken::first()->ID_USUARIO);
         $this->assertEquals($token, ApiToken::first()->token);
         $this->assertTrue(ApiToken::first()->expired_at->isSameDay(now()->addDays(config('multiple-tokens-auth.token.life_length'))));
     }
@@ -47,7 +47,7 @@ class HasApiTokensTest extends TestCase
 
         $this->assertEquals(1, ApiToken::count());
         $this->assertEquals(1, $user->apiTokens()->count());
-        $this->assertEquals($user->id, ApiToken::first()->user_id);
+        $this->assertEquals($user->ID_USUARIO, ApiToken::first()->ID_USUARIO);
         $this->assertEquals(hash('sha256', $token), ApiToken::first()->token);
     }
 

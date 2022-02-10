@@ -14,7 +14,7 @@ class MultipleTokensAuthGuardTest extends TestCase
     {
         return new MultipleTokensGuard(
             $this->app['auth']->createUserProvider('users'),
-            new Request(['api_token' => $token]),
+            new Request(['dps_api_token' => $token]),
             $hash
         );
     }

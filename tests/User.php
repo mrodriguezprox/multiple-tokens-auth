@@ -12,7 +12,65 @@ class User extends Model implements AuthorizableContract, AuthenticatableContrac
 {
     use Authorizable, Authenticatable, HasApiTokens;
 
-    protected $fillable = ['email'];
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'dps_usuario';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'ID_USUARIO';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+
+    public $username = "usuario";
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
     public $timestamps = false;
-    protected $table = 'users';
+
+
+    protected $fillable = ['DETALLE', 'FECHA_ALTA', 'NOMBRE', 'USUARIO'/*, 'api_token'*/];
+
+    /**
+    * The attributes excluded from the model's JSON form.
+    *
+    * @var array
+    */
+    protected $hidden = array('PASSWORD');
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'FECHA_ALTA' => 'datetime',
+        //'api_token_created_at' => 'datetime'
+    ];
+
+    public function getAuthIdentifierName() {
+        return 'usuario';
+    }
+
+    /**
+     * Get the "usuario_cuestionarios" for the "usuario".
+     */
+    public function usuarioCuestionarios()
+    {
+        return $this->hasMany('App\Models\UsuarioCuestionario', 'ID_USUARIO');
+    }
 }
