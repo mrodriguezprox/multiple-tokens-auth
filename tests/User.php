@@ -62,6 +62,10 @@ class User extends Model implements AuthorizableContract, AuthenticatableContrac
         //'api_token_created_at' => 'datetime'
     ];
 
+    public function getAuthIdentifier() {
+        return 'ID_USUARIO';
+    }
+
     public function getAuthIdentifierName() {
         return 'usuario';
     }

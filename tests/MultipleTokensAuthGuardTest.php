@@ -53,7 +53,7 @@ class MultipleTokensAuthGuardTest extends TestCase
     public function it_can_get_a_user_from_a_valid_token()
     {
         $user = factory(User::class)->create();
-        $token = factory(ApiToken::class)->create(['user_id' => $user->id]);
+        $token = factory(ApiToken::class)->create(['ID_USUARIO' => $user->ID_USUARIO]);
         $guard = $this->createGuard(false, $token->token);
 
         $this->assertNotNull($guard->user());
