@@ -32,7 +32,7 @@ class ApiToken extends Model
         }
 
         return $this->expired_at->isBefore(
-            now()->addDays(config('multiple-tokens-auth.token.extend_life_at'))
+            now()->addMinutes(config('multiple-tokens-auth.token.extend_life_at'))
         );
     }
 

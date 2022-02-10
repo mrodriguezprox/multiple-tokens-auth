@@ -50,7 +50,7 @@ class MultipleTokensGuard implements Guard
 
         if ($apiToken->shouldExtendLife()) {
             $apiToken->update([
-                'expired_at' => now()->addDays(config('multiple-tokens-auth.token.life_length')),
+                'expired_at' => now()->addMinutes(config('multiple-tokens-auth.token.life_length')),
             ]);
         }
 
