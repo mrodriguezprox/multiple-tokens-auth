@@ -54,7 +54,7 @@ class MultipleTokensGuard implements Guard
             ]);
         }
 
-        return $this->user = $this->provider->retrieveById($apiToken->user_id);
+        return $this->user = $this->provider->retrieveById($apiToken->ID_USUARIO);
     }
 
     public function validate(array $credentials = [])

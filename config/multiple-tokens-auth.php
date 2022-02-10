@@ -1,18 +1,18 @@
 <?php
 
 return [
-    'table' => 'api_tokens',
+    'table' => 'dps_api_tokens',
 
     'token' => [
         /*
-         * Amount of days token should live
-         * Value is in days.
+         * Amount of minutes token should live
+         * Value is in minutes.
         */
-        'life_length' => 60,
+        'life_length' => 15,
 
         /*
-         * Amount of days left of life when we should extend it
-         * Value is in days.
+         * Amount of minutes left of life when we should extend it
+         * Value is in minutes.
         */
         'extend_life_at' => 10,
 
